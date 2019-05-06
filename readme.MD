@@ -11,22 +11,22 @@ Nginx configuration for vue-cli-service development server
 ```
 server {
   listen 81;
-    server_name tanopwan.com;
-    location /api {
-      proxy_pass http://127.0.0.1:3000;
-    }   
-    location / {
-      proxy_pass http://127.0.0.1:8080;
-    }
-    location /sockjs-node {
-      proxy_pass http://127.0.0.1:8080;
-      proxy_redirect off;
-
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection "upgrade";
-    }
+  server_name tanopwan.com;
+  location /api {
+    proxy_pass http://127.0.0.1:3000;
+  }   
+  location / {
+    proxy_pass http://127.0.0.1:8080;
   }
+  location /sockjs-node {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_redirect off;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+}
 ```
 
 In package.json file
